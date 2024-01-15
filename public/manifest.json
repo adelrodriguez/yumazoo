@@ -1,0 +1,11 @@
+{
+  "name": "Yumazoo",
+  "version": "1.0.0",
+  "description": "An app for accessing and managing recipes",
+  "author": "Adel Rodríguez",
+  "manifest_version": 3,
+  "action": {
+    "default_popup": "index.html",
+    "default_title": "Yumazoo"
+  }
+}
