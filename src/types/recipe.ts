@@ -1,16 +1,16 @@
 export type Recipe = {
-  name: string;
-  origin: string;
+  authenticity: Authenticity;
+  cookingOil: string;
   description: string;
   difficulty: Difficulty;
-  protein: string;
+  name: string;
+  origin: string;
   produce: string;
-  spice: string;
-  cookingOil: string;
-  volume: number;
+  protein: string;
   serves: number;
-  authenticity: Authenticity;
+  spice: string;
   stock: string;
+  volume: number;
 };
 
 enum Difficulty {
@@ -18,6 +18,12 @@ enum Difficulty {
   Medium,
   Hard,
 }
+
+export const DifficultyLabel = {
+  [Difficulty.Easy]: 'Easy',
+  [Difficulty.Medium]: 'Medium',
+  [Difficulty.Hard]: 'Hard',
+};
 
 enum Authenticity {
   Verified = 'Verified',
