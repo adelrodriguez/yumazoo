@@ -15,7 +15,7 @@ export default function App() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <main className="text-white h-[630px] w-[410px] p-6 font-ui">
+      <main className="text-white h-[630px] w-[410px] m-auto p-6 font-ui">
         <RecipeProvider>
           <div className="flex flex-col gap-y-6">
             {showAddRecipeForm ? (
