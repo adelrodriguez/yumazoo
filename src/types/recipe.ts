@@ -13,19 +13,19 @@ export type Recipe = {
   volume: number;
 };
 
-enum Difficulty {
+export enum Difficulty {
   Easy,
   Medium,
   Hard,
 }
 
-export const DifficultyLabel = {
+export const difficultyLabels = {
   [Difficulty.Easy]: 'Easy',
   [Difficulty.Medium]: 'Medium',
   [Difficulty.Hard]: 'Hard',
 };
 
-enum Authenticity {
+export enum Authenticity {
   Verified = 'Verified',
   Unverified = 'Unverified',
 }

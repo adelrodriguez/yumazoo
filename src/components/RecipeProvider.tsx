@@ -1,5 +1,7 @@
+import { type ReactNode, createContext, useState } from 'react';
+import { ExclamationCircleIcon } from '@heroicons/react/24/outline';
 import useRecipes from '@/utils/hooks/use-recipes';
-import { type ReactNode, createContext, useState, useEffect } from 'react';
+import Loading from '@/components/Loading';
 
 export type RecipeContext = [number | null, (selectedIndex: number | null) => void];
 
@@ -7,28 +9,29 @@ export const RecipeContext = createContext<RecipeContext>([null, () => {}]);
 
 export default function RecipeProvider({ children }: { children: ReactNode }) {
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
-  const { data: recipes, isPending, isError } = useRecipes();
-
-  // TODO(adelrodriguez): remove this useEffect
-  useEffect(() => {
-    console.log(selectedIndex);
-  }, [selectedIndex]);
+  const { isPending, isError } = useRecipes();
 
   if (isError) {
-    // TODO(adelrodriguez): Add nicer error handling
-    return <h1>There was an error</h1>;
+    return (
+      <div className="h-full w-full flex flex-col gap-y-4 justify-center items-center text-center">
+        <ExclamationCircleIcon className="h-10 w-10 text-red-600" aria-hidden="true" />
+        <h1 className="font-light text-lg">
+          There was an error. Please try again in a few moments.
+        </h1>
+      </div>
+    );
   }
 
   if (isPending) {
-    // TODO(adelrodriguez): Add loading state
-    return <h1>Loading...</h1>;
+    return (
+      <div className="h-full w-full flex justify-center items-center">
+        <Loading />
+      </div>
+    );
   }
 
   return (
     <RecipeContext.Provider value={[selectedIndex, setSelectedIndex]}>
-      <div>
-        Total recipe number: <span>{recipes.length}</span>
-      </div>
       {children}
     </RecipeContext.Provider>
   );

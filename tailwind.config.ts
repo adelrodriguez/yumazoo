@@ -1,14 +1,16 @@
 import defaultTheme from 'tailwindcss/defaultTheme';
+import type { Config } from 'tailwindcss';
+import FormsPlugin from '@tailwindcss/forms';
 
-/** @type {import('tailwindcss').Config} */
 export default {
   content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
   theme: {
     extend: {
       fontFamily: {
+        ui: ['Helvetica Neue', ...defaultTheme.fontFamily.sans],
         styled: ['Bai Jamjuree', ...defaultTheme.fontFamily.sans],
       },
     },
   },
-  plugins: [],
-};
+  plugins: [FormsPlugin],
+} satisfies Config;
