@@ -2,6 +2,8 @@
 
 This is a simple React app to view and add recipes. It is intended to be used as a Chrome extension.
 
+[See a live demo](https://polite-syrniki-d5be52.netlify.app/). Note: Site probably won't work due to CORS. Use a CORS unblocker extension to get around this.
+
 ## Installation
 
 1. Clone the repo
